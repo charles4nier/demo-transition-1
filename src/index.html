@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DEmo transition</title>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.app.css %>">
+  </head>
+  <body>
+    <main>
+        <div class="carrousel" id="carrousel-first">
+            <div class="first-img"></div>
+            <div class="second-img"></div>
+            <div class="calc"></div>
+        </div>
+        <div class="carrousel" id="carrousel-second">
+            <div class="first-img"></div>
+            <div class="second-img"></div>
+            <div class="calc"></div>
+        </div>
+        <div class="carrousel" id="carrousel-third">
+            <div class="first-img"></div>
+            <div class="second-img"></div>
+            <div class="calc"></div>
+        </div>
+        <nav id="nav-project">
+            <p>Tous les projets</p>
+        </nav>
+        <nav id="nav-site">
+            <ul>
+                <li>Accueil</li>
+                <li>Projets</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+        <h1>
+            <span>Superjoli</span>
+            <button>click me</button>
+        </h1>
+    </main>
+    <script src="<%= htmlWebpackPlugin.files.chunks.app.entry %>"></script>
+  </body>
+</html>

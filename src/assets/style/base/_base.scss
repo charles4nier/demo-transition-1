@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+button {
+    background: none;
+    border: none;
+  &:focus {
+    outline: 0;
+  }
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    @include flexAlign(row, center, center);
+}
+
+main,
+.carrousel,
+#carrousel-first {
+    width: 100%;
+    height: 100%;
+}
+
+#carrousel-second,
+#carrousel-third {
+    width: 50%;
+    height: 50%;
+    .first-img,
+    .second-img {
+        width: 200%;
+        height: 200%;
+    }
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+.carrousel {
+    position: absolute;
+    overflow: hidden;
+}
+
+#carrousel-first {
+    top: 0;
+    left: 0;
+    .first-img,
+    .second-img {
+        width: 100%;
+        height: 100%;
+    }
+    .first-img {
+        transform: translateY(0);
+    }
+    .second-img {
+        transform: translateY(-100%);
+        top: 0;
+        left: 0;
+    }
+    .calc {
+        transform: translateY(-100%);
+    }
+    &.test {
+        .first-img {
+            transform: translateY(100%);
+        }
+        .second-img {
+            transform: translateY(0);
+        }
+        .calc {
+            transform: translateY(100%);
+        }
+    }
+}
+
+#carrousel-second {
+    top: 0;
+    left: 0;
+    .first-img {
+        transform: translateY(0);
+    }
+    .second-img {
+        transform: translateY(0);
+        top: 100%;
+        left: 0;
+    }
+    .calc {
+        transform: translateY(100%);
+    }
+    &.test {
+        .first-img {
+            transform: translateY(-50%);
+        }
+        .second-img {
+            transform: translateY(-50%);
+        }
+        .calc {
+            transform: translateY(-100%);
+        }
+    }    
+}
+
+#carrousel-third {
+    top: 50%;
+    left: 0;
+    background-position: 0 0;
+    .first-img {
+        transform: translate3d(0, -50%, 0);
+    }
+    .second-img {
+        transform: translate3d(0, -50%, 0);
+        top: 0;
+        left: 100%;
+    }
+    .calc {
+        transform: translateX(100%);
+    }
+    &.test {
+        .first-img {
+            transform: translate3d(-50%, -50%, 0);
+        }
+        .second-img {
+            transform: translate3d(-50%, -50%, 0);
+        }
+        .calc {
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.first-img {
+    position: absolute;
+    background: url('../images/superjoli.jpg') center center no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+}
+
+.second-img {
+    position: absolute;
+    background: url('../images/bamboo.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.first-img {
+    transition: transform 1.2s cubic-bezier(.54,.51,0,.97);
+}
+
+.second-img {
+    transition: transform 1.2s cubic-bezier(.54,.51,0,.97) .1s;
+}
+
+.calc {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fafbfc;
+    top: 0;
+    left: 0;
+    transition: transform 1.1s cubic-bezier(.54,.51,0,.97) .1s;
+}
+
+button {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    background: white;
+}
+
+#nav-project {
+    position: absolute;
+    height: 50%;
+    width: 10%;
+    top: 50%;
+    left: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+#nav-site {
+    @include flexAlign(row, center, center);
+    position: absolute;
+    height: 50%;
+    width: 10%;
+    bottom: 15%;
+    right: 0;
+    background-color: white;
+    z-index: 10;
+    ul {
+        @include flexAlign(column, center, center);
+        height: 100%;
+        li {
+            @include flexAlign(row, space-evenly, center);
+        }
+    }
+}
+
+h1 {
+    @include flexAlign(row, space-between, center);
+    position: absolute;
+    background-color: white;
+    height: 15%;
+    width: 50%;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    button {
+        height: 100%;
+        width: 20vw;
+        background-color: #181818;
+        @include flexAlign(row, center, center);
+        color: white;
+    }
+}
